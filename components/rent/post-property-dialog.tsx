@@ -246,7 +246,7 @@ export function PostPropertyDialog({ open, onOpenChange, onSubmit }: PostPropert
         if (!next) setErrors({})
       }}
     >
-      <DialogContent className={bottomSheetClass}>
+      <DialogContent className="w-[95vw] max-w-lg max-h-[85vh] overflow-y-auto p-4 sm:p-6 rounded-2xl">
         <form onSubmit={handleSubmit} noValidate className="flex flex-col">
           <div className="border-b border-border p-5 pb-4">
             <DialogTitle className="text-lg font-extrabold">Post your property</DialogTitle>
@@ -388,13 +388,39 @@ export function PostPropertyDialog({ open, onOpenChange, onSubmit }: PostPropert
               />
             </Field>
 
-            <Segmented
-              label="Configuration"
-              options={[1, 2, 3].map((n) => ({ label: `${n} BHK`, value: n as Bhk }))}
-              value={form.bhk}
-              onChange={(v) => update("bhk", v)}
-            />
+            <div className="space-y-1.5">
+  <label className="text-xs font-semibold text-muted-foreground uppercase">प्रॉपर्टी प्रकार (Property Type)</label>
+  <div className="grid grid-cols-2 gap-2">
+    <Button 
+      type="button" 
+      variant={form.propertyType === "House" ? "default" : "outline"} 
+      className="h-10 text-xs sm:text-sm font-medium"
+      onClick={() => update("propertyType", "House")}
+    >
+      Independent House
+    </Button>
+    <Button 
+      type="button" 
+      variant={form.propertyType !== "House" ? "default" : "outline"} 
+      className="h-10 text-xs sm:text-sm font-medium"
+      onClick={() => update("propertyType", "Flat")}
+    >
+      Flat / Apartment
+    </Button>
+  </div>
+</div>
 
+<Segmented
+  label="Configuration"
+  options={[
+    { label: "1 RK", value: "1 RK" as any },
+    { label: "1 BHK", value: 1 as Bhk },
+    { label: "2 BHK", value: 2 as Bhk },
+    { label: "3 BHK", value: 3 as Bhk },
+  ]}
+  value={form.bhk}
+  onChange={(v) => update("bhk", v)}
+/>
             <div className="grid grid-cols-2 gap-3">
               <Field id="post-rent" label="Rent / month (₹)" error={errors.rent}>
                 <Input

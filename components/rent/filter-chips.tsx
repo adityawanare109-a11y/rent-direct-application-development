@@ -16,7 +16,7 @@ type FilterChipsProps = {
   onPetsChange: (value: boolean | null) => void
 }
 
-const BHK_OPTIONS: Bhk[] = [1, 2, 3]
+const BHK_OPTIONS = ["1 RK", 1, 2, 3]
 const TENANT_CHIP_LABEL: Record<TenantPreference, string> = {
   "Family Only": "Family",
   "Bachelors (Men / Women)": "Bachelors",
