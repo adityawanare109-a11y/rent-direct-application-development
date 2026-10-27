@@ -397,7 +397,7 @@ export function PostPropertyDialog({ open, onOpenChange, onSubmit }: PostPropert
       className="h-10 text-xs sm:text-sm font-medium"
       onClick={() => update("propertyType", "House")}
     >
- <div className="space-y-1.5 mt-2">
+<div className="space-y-1.5">
   <label className="text-xs font-semibold text-muted-foreground uppercase">प्रॉपर्टी प्रकार (Property Type)</label>
   <div className="grid grid-cols-2 gap-2">
     <Button 
