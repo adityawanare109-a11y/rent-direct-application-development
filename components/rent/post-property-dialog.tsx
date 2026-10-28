@@ -247,7 +247,7 @@ export function PostPropertyDialog({ open, onOpenChange, onSubmit }: PostPropert
       }}
     >
       <DialogContent className="w-[95vw] max-w-lg max-h-[85vh] overflow-y-auto p-4 sm:p-6 rounded-2xl">
-        <form onSubmit={handleSubmit} noValidate className="flex flex-col">
+      <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-4 overflow-x-hidden w-full max-w-full">
           <div className="border-b border-border p-5 pb-4">
             <DialogTitle className="text-lg font-extrabold">Post your property</DialogTitle>
             <DialogDescription className="mt-1">
